@@ -40,6 +40,12 @@ const isPremium = (flavor) => flavor.isPremium || false
             :style="isPremium(flavor) ? { border: '3px solid #e8c547' } : {}"
           >
             <div class="flavor-content">
+              <img
+                v-if="flavor.image"
+                :src="flavor.image"
+                :alt="flavor.label"
+                class="flavor-image"
+              />
               <p class="flavor-name">{{ flavor.label }}</p>
               <p v-if="flavor.price > 0" class="flavor-price">
                 +R$ {{ flavor.price.toFixed(2) }}
@@ -87,6 +93,15 @@ const isPremium = (flavor) => flavor.isPremium || false
 
 .flavor-content {
   text-align: center;
+}
+
+.flavor-image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-sm);
 }
 
 .flavor-name {

@@ -31,6 +31,12 @@ const continueToNext = () => {
     <div class="adicionais-content">
       <div class="adicionais-list">
         <div v-for="additive in orderStore.solidAdditives" :key="additive.id" class="additive-item">
+          <img
+            v-if="additive.image"
+            :src="additive.image"
+            :alt="additive.label"
+            class="additive-image"
+          />
           <KCheckbox
             :model-value="isSelected(additive.id)"
             :label="`${additive.label} - R$ ${additive.price.toFixed(2)}`"
@@ -92,11 +98,23 @@ const continueToNext = () => {
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
   background: var(--color-light-gray);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
 }
 
 .additive-item:hover {
   background: rgba(232, 200, 71, 0.1);
   transform: translateX(4px);
+}
+
+.additive-image {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
 }
 
 .selection-summary {

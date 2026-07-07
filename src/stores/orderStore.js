@@ -1,6 +1,34 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 
+import copo300ml from '@/assets/images/icons/copo_300ml.png'
+import copo500ml from '@/assets/images/icons/copo_500ml.png'
+import copo700ml from '@/assets/images/icons/copo_700ml.png'
+
+import massaAcai from '@/assets/images/icons/massa_acai.png'
+import massaSorvete from '@/assets/images/icons/massa_sorvete.png'
+
+import acaiMorango from '@/assets/images/icons/acai_morango.webp'
+import acaiBanana from '@/assets/images/icons/acai_banana.webp'
+import acaiNinho from '@/assets/images/icons/acai_ninho.png'
+import acaiFit from '@/assets/images/icons/acai_fit.webp'
+import sorveteMorango from '@/assets/images/icons/morango.webp'
+import baunilha from '@/assets/images/icons/baunilha.png'
+import milhoVerde from '@/assets/images/icons/milho_verde.webp'
+import chiclete from '@/assets/images/icons/chiclete.png'
+import kennedysCandy from "@/assets/images/icons/kennedy's_kandy.png"
+
+import leiteCondensado from '@/assets/images/icons/leite_condensado.jpg'
+import nutella from '@/assets/images/icons/nutella.png'
+import mousseMaracuja from '@/assets/images/icons/mousse_maracuja.png'
+import cremeOvomaltine from '@/assets/images/icons/creme_ovomaltine.webp'
+
+import pedacoMorango from '@/assets/images/icons/pedaco_morango.webp'
+import kiwi from '@/assets/images/icons/kiwi.png'
+import rodelaBanana from '@/assets/images/icons/rodela_banana.png'
+import confete from '@/assets/images/icons/confete.jfif'
+import brownie from '@/assets/images/icons/brownie.jfif'
+
 export const useOrderStore = defineStore('order', () => {
   // Estado
   const size = ref(null) // '300ml', '500ml', '700ml'
@@ -13,55 +41,57 @@ export const useOrderStore = defineStore('order', () => {
 
   // Dados estáticos dos produtos
   const sizes = [
-    { id: '300ml', label: '300ml', price: 12.90, visual: 'small' },
-    { id: '500ml', label: '500ml', price: 16.90, visual: 'medium' },
-    { id: '700ml', label: '700ml', price: 22.90, visual: 'large' },
+    { id: '300ml', label: '300ml', price: 12.90, image: copo300ml },
+    { id: '500ml', label: '500ml', price: 16.90, image: copo500ml },
+    { id: '700ml', label: '700ml', price: 22.90, image: copo700ml },
   ]
 
   const bases = [
-    { id: 'acai', label: 'Açaí', color: 'var(--color-purple)' },
-    { id: 'sorvete', label: 'Sorvete', color: 'var(--color-vanilla)' },
+    { id: 'acai', label: 'Açaí', color: 'var(--color-purple)', image: massaAcai },
+    { id: 'sorvete', label: 'Sorvete', color: 'var(--color-vanilla)', image: massaSorvete },
   ]
 
   const flavorsData = {
     acai: [
-      { id: 'acai-morango', label: 'Açaí com Morango', price: 0 },
-      { id: 'acai-banana', label: 'Açaí com Banana', price: 0 },
-      { id: 'acai-leitininho', label: 'Açaí com Leite Ninho', price: 0 },
-      { id: 'acai-zero', label: 'Açaí Zero (sem açúcar)', price: 0 },
+      { id: 'acai-morango', label: 'Açaí com Morango', price: 0, image: acaiMorango },
+      { id: 'acai-banana', label: 'Açaí com Banana', price: 0, image: acaiBanana },
+      { id: 'acai-leitininho', label: 'Açaí com Leite Ninho', price: 0, image: acaiNinho },
+      { id: 'acai-zero', label: 'Açaí Zero (sem açúcar)', price: 0, image: acaiFit },
     ],
     sorvete: [
-      { id: 'sorvete-morango', label: 'Morango', price: 0 },
-      { id: 'sorvete-baunilha', label: 'Baunilha', price: 0 },
-      { id: 'sorvete-milhoverde', label: 'Milho Verde', price: 0 },
+      { id: 'sorvete-morango', label: 'Morango', price: 0, image: sorveteMorango },
+      { id: 'sorvete-baunilha', label: 'Baunilha', price: 0, image: baunilha },
+      { id: 'sorvete-milhoverde', label: 'Milho Verde', price: 0, image: milhoVerde },
       {
         id: 'sorvete-chiclete',
         label: 'Chiclete',
         price: 0,
+        image: chiclete,
       },
       {
         id: 'sorvete-kennedys-candy',
         label: "Kennedy's Candy",
         price: 4.50,
         isPremium: true,
+        image: kennedysCandy,
       },
     ],
   }
 
   const liquidAdditivesData = [
-    { id: 'leite-condensado', label: 'Leite Condensado', price: 2.50 },
-    { id: 'nutella', label: 'Nutella', price: 3.50 },
-    { id: 'mousse-maracuja', label: 'Mousse de Maracujá', price: 2.50 },
-    { id: 'creme-ovomaltine', label: 'Creme de Ovomaltine', price: 3.00 },
+    { id: 'leite-condensado', label: 'Leite Condensado', price: 2.50, image: leiteCondensado },
+    { id: 'nutella', label: 'Nutella', price: 3.50, image: nutella },
+    { id: 'mousse-maracuja', label: 'Mousse de Maracujá', price: 2.50, image: mousseMaracuja },
+    { id: 'creme-ovomaltine', label: 'Creme de Ovomaltine', price: 3.00, image: cremeOvomaltine },
   ]
 
   const solidAdditivesData = [
-    { id: 'morango', label: 'Morango', price: 1.50 },
-    { id: 'kiwi', label: 'Kiwi', price: 2.00 },
-    { id: 'banana', label: 'Banana', price: 1.50 },
-    { id: 'ovomaltine', label: 'Ovomaltine', price: 2.50 },
-    { id: 'confete', label: 'Confete', price: 1.00 },
-    { id: 'brownie', label: 'Brownie', price: 3.50 },
+    { id: 'morango', label: 'Morango', price: 1.50, image: pedacoMorango },
+    { id: 'kiwi', label: 'Kiwi', price: 2.00, image: kiwi },
+    { id: 'banana', label: 'Banana', price: 1.50, image: rodelaBanana },
+    { id: 'ovomaltine', label: 'Ovomaltine', price: 2.50, image: cremeOvomaltine },
+    { id: 'confete', label: 'Confete', price: 1.00, image: confete },
+    { id: 'brownie', label: 'Brownie', price: 3.50, image: brownie },
   ]
 
   // Getters

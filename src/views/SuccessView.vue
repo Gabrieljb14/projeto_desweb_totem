@@ -3,6 +3,9 @@ import { useRouter } from 'vue-router'
 import { useOrderStore } from '@/stores/orderStore'
 import KButton from '@/components/KButton.vue'
 import KAccordion from '@/components/KAccordion.vue'
+import BackgroundCarousel from '@/components/BackgroundCarousel.vue'
+
+import kennedysLogo from "@/assets/images/icons/kennedy's_logo.png"
 
 const router = useRouter()
 const orderStore = useOrderStore()
@@ -15,6 +18,10 @@ const startNewOrder = () => {
 
 <template>
   <div class="success-screen">
+    <BackgroundCarousel
+      overlay="linear-gradient(135deg, rgba(230, 247, 255, 0.75) 0%, rgba(255, 240, 245, 0.7) 50%, rgba(240, 230, 246, 0.75) 100%)"
+    />
+
     <div class="success-content">
       <!-- Celebração -->
       <div class="celebration">
@@ -24,6 +31,8 @@ const startNewOrder = () => {
         <div class="confetti">*</div>
         <div class="confetti">*</div>
       </div>
+
+      <img :src="kennedysLogo" alt="Kennedy's" class="success-logo" />
 
       <!-- Mensagem Principal -->
       <div class="success-message">
@@ -125,15 +134,25 @@ const startNewOrder = () => {
   background: linear-gradient(135deg, #e6f7ff 0%, #fff0f5 50%, #f0e6f6 100%);
   padding: var(--spacing-xl);
   overflow-y: auto;
+  position: relative;
 }
 
 .success-content {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-2xl);
   max-width: 600px;
   margin-bottom: var(--spacing-xl);
+}
+
+.success-logo {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
 
 .celebration {
@@ -325,6 +344,8 @@ const startNewOrder = () => {
 }
 
 .success-footer {
+  position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 600px;
   padding: 0 var(--spacing-xl);

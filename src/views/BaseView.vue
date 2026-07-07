@@ -30,8 +30,7 @@ const goBack = () => {
             @click="selectBase(b.id)"
           >
             <div class="base-icon">
-              <div v-if="b.id === 'acai'" class="base-acai">Açaí</div>
-              <div v-else class="base-sorvete">Sorvete</div>
+              <img :src="b.image" :alt="b.label" class="base-image" />
             </div>
             <p class="base-label">{{ b.label }}</p>
           </KCard>
@@ -77,19 +76,16 @@ const goBack = () => {
 }
 
 .base-icon {
-  font-size: 80px;
   margin-bottom: var(--spacing-lg);
   animation: pulse 2s ease-in-out infinite;
 }
 
-.base-acai {
-  color: #8b5fbf;
-  filter: drop-shadow(0 4px 8px rgba(139, 95, 191, 0.3));
-}
-
-.base-sorvete {
-  color: #f5d5b8;
-  filter: drop-shadow(0 4px 8px rgba(245, 213, 184, 0.5));
+.base-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
 }
 
 .base-label {
