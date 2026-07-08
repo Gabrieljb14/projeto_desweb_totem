@@ -5,7 +5,7 @@ import KButton from '@/components/KButton.vue'
 import KAccordion from '@/components/KAccordion.vue'
 import BackgroundCarousel from '@/components/BackgroundCarousel.vue'
 
-import kennedysLogo from "@/assets/images/icons/kennedy's_logo.png"
+import kennedysLogo from "@/assets/images/icons/Kennedy's.png"
 
 const router = useRouter()
 const orderStore = useOrderStore()
@@ -26,6 +26,11 @@ const startNewOrder = () => {
       <!-- Celebração -->
       <div class="celebration">
         <div class="confetti">*</div>
+        <div class="confetti">*</div>
+        <div class="confetti">*</div>
+        <div class="confetti">*</div>
+        <div class="confetti">*</div>
+         <div class="confetti">*</div>
         <div class="confetti">*</div>
         <div class="confetti">*</div>
         <div class="confetti">*</div>
@@ -130,7 +135,7 @@ const startNewOrder = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: linear-gradient(135deg, #e6f7ff 0%, #fff0f5 50%, #f0e6f6 100%);
   padding: var(--spacing-xl);
   overflow-y: auto;
@@ -150,8 +155,9 @@ const startNewOrder = () => {
 
 .success-logo {
   width: 100%;
-  max-width: 200px;
+  max-width: 500px;
   height: auto;
+  flex-shrink: 0;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
 

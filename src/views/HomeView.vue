@@ -76,7 +76,7 @@ const startOrder = () => {
 
 .home-logo {
   width: 100%;
-  max-width: 440px;
+  max-width: 1000px;
   height: auto;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
   margin-top: var(--spacing-2xl);
