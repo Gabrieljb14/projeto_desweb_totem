@@ -30,7 +30,7 @@ const continueToNext = () => {
   >
     <div class="adicionais-content">
       <div class="adicionais-list">
-        <div v-for="additive in orderStore.solidAdditives" :key="additive.id" class="additive-item">
+        <div v-for="additive in orderStore.solidAdditivesList" :key="additive.id" class="additive-item">
           <img
             v-if="additive.image"
             :src="additive.image"

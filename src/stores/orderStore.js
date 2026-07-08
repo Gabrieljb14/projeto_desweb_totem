@@ -191,8 +191,8 @@ export const useOrderStore = defineStore('order', () => {
     sizes,
     bases,
     flavorsData,
-    liquidAdditives: liquidAdditivesData,
-    solidAdditives: solidAdditivesData,
+    liquidAdditivesList: liquidAdditivesData,
+    solidAdditivesList: solidAdditivesData,
 
     // Getters
     currentFlavors,
